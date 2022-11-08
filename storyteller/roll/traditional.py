@@ -1,7 +1,6 @@
 """Module for performing simple, traditional dice rolls."""
 
-import re
-from random import randint
+import re, secrets
 from collections import namedtuple
 
 import dice
@@ -22,7 +21,7 @@ def roll(repeat: int, die: int) -> list:
         die (int): The type of die to roll, such as d10
     Returns (list): The results of the rolls
     """
-    return [randint(1, die) for _ in range(repeat)]
+    return [secrets.choice(range(1, die)) for _ in range(repeat)]
 
 
 def roll_from_string(equation: str) -> TraditionalRoll:
